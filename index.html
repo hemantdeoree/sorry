@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I'm Sorry 💌</title>
+<title>I'm Sorry Grace 💌</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,45 +19,15 @@
     position: relative;
   }
 
-  /* Starfield */
-  .stars {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .star {
-    position: absolute;
-    border-radius: 50%;
-    background: white;
-    animation: twinkle var(--d) ease-in-out infinite alternate;
-    opacity: 0;
-  }
-
+  .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .star { position: absolute; border-radius: 50%; background: white; animation: twinkle var(--d) ease-in-out infinite alternate; opacity: 0; }
   @keyframes twinkle {
     0% { opacity: 0; transform: scale(0.8); }
     100% { opacity: var(--op); transform: scale(1.1); }
   }
 
-  /* Floating petals */
-  .petals-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  .petal {
-    position: absolute;
-    top: -30px;
-    font-size: 18px;
-    animation: fallPetal var(--fall-d) linear infinite;
-    animation-delay: var(--fall-delay);
-    opacity: 0.7;
-  }
-
+  .petals-container { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .petal { position: absolute; top: -30px; font-size: 18px; animation: fallPetal var(--fall-d) linear infinite; animation-delay: var(--fall-delay); opacity: 0.7; }
   @keyframes fallPetal {
     0% { transform: translateY(-30px) rotate(0deg) translateX(0); opacity: 0; }
     10% { opacity: 0.7; }
@@ -65,14 +35,12 @@
     100% { transform: translateY(110vh) rotate(360deg) translateX(var(--sway)); opacity: 0; }
   }
 
-  /* Card */
   .card-wrapper {
     position: relative;
     z-index: 10;
     animation: cardIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
     padding: 1.5rem;
   }
-
   @keyframes cardIn {
     from { opacity: 0; transform: translateY(40px) scale(0.95); }
     to { opacity: 1; transform: translateY(0) scale(1); }
@@ -88,12 +56,8 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow:
-      0 0 0 1px rgba(220, 80, 120, 0.08),
-      0 40px 80px rgba(0,0,0,0.7),
-      inset 0 1px 0 rgba(255,255,255,0.05);
+    box-shadow: 0 0 0 1px rgba(220, 80, 120, 0.08), 0 40px 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.05);
   }
-
   .card::before {
     content: '';
     position: absolute;
@@ -103,24 +67,14 @@
     pointer-events: none;
   }
 
-  /* Heart */
-  .heart-container {
-    margin-bottom: 1.5rem;
-    position: relative;
-    display: inline-block;
-  }
-
+  .heart-container { margin-bottom: 1.5rem; position: relative; display: inline-block; }
   .heart {
     font-size: 3.5rem;
     display: inline-block;
     animation: heartbeat 1.4s ease-in-out infinite;
     filter: drop-shadow(0 0 20px rgba(220, 80, 120, 0.6));
     cursor: pointer;
-    transition: transform 0.2s;
   }
-
-  .heart:active { transform: scale(1.3); }
-
   @keyframes heartbeat {
     0%, 100% { transform: scale(1); }
     14% { transform: scale(1.15); }
@@ -129,232 +83,107 @@
     70% { transform: scale(1); }
   }
 
-  .heart-burst {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  /* Typography */
   .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(220, 80, 120, 0.7);
-    margin-bottom: 0.75rem;
-    font-weight: 400;
+    font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(220, 80, 120, 0.7); margin-bottom: 0.75rem; font-weight: 400;
     animation: fadeUp 0.8s 0.3s both;
   }
-
   .headline {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.8rem;
-    font-weight: 400;
-    color: #f0dde5;
-    line-height: 1.15;
-    margin-bottom: 0.25rem;
+    font-size: 2.8rem; font-weight: 400; color: #f0dde5;
+    line-height: 1.15; margin-bottom: 0.25rem;
     animation: fadeUp 0.8s 0.45s both;
   }
-
-  .headline em {
-    font-style: italic;
-    color: #e8758f;
-  }
+  .headline em { font-style: italic; color: #e8758f; }
 
   .divider {
-    width: 60px;
-    height: 1px;
+    width: 60px; height: 1px;
     background: linear-gradient(90deg, transparent, rgba(220, 80, 120, 0.5), transparent);
-    margin: 1.5rem auto;
-    animation: fadeUp 0.8s 0.6s both;
+    margin: 1.5rem auto; animation: fadeUp 0.8s 0.6s both;
   }
 
   .message {
-    font-size: 1rem;
-    color: rgba(240, 220, 228, 0.75);
-    line-height: 1.85;
-    font-weight: 300;
-    animation: fadeUp 0.8s 0.75s both;
-    margin-bottom: 1rem;
+    font-size: 1rem; color: rgba(240, 220, 228, 0.75);
+    line-height: 1.85; font-weight: 300;
+    animation: fadeUp 0.8s 0.75s both; margin-bottom: 1rem;
   }
-
-  .message strong {
-    color: rgba(240, 220, 228, 0.95);
-    font-weight: 400;
-  }
+  .message strong { color: rgba(240, 220, 228, 0.95); font-weight: 400; }
 
   .personal-note {
     font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #e8758f;
-    margin: 1.5rem 0;
-    line-height: 1.7;
+    font-style: italic; font-size: 1.1rem; color: #e8758f;
+    margin: 1.5rem 0; line-height: 1.7;
     animation: fadeUp 0.8s 0.9s both;
   }
 
-  .signature {
-    margin-top: 2rem;
-    animation: fadeUp 0.8s 1.05s both;
-  }
+  .signature { margin-top: 2rem; animation: fadeUp 0.8s 1.05s both; }
+  .signature-line { font-size: 0.8rem; color: rgba(240, 220, 228, 0.4); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+  .signature-name { font-family: 'Playfair Display', Georgia, serif; font-size: 1.4rem; color: rgba(240, 220, 228, 0.85); font-style: italic; }
 
-  .signature-line {
-    font-size: 0.8rem;
-    color: rgba(240, 220, 228, 0.4);
-    letter-spacing: 0.1em;
-    margin-bottom: 0.4rem;
-  }
-
-  .signature-name {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.4rem;
-    color: rgba(240, 220, 228, 0.85);
-    font-style: italic;
-  }
-
-  /* Button */
   .forgive-btn {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.85rem 2.5rem;
-    border: 1px solid rgba(220, 80, 120, 0.4);
-    border-radius: 100px;
-    background: rgba(220, 80, 120, 0.08);
-    color: #e8758f;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    animation: fadeUp 0.8s 1.2s both;
-    position: relative;
-    overflow: hidden;
+    display: inline-block; margin-top: 2rem; padding: 0.85rem 2.5rem;
+    border: 1px solid rgba(220, 80, 120, 0.4); border-radius: 100px;
+    background: rgba(220, 80, 120, 0.08); color: #e8758f;
+    font-family: 'Lato', sans-serif; font-size: 0.85rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s ease;
+    animation: fadeUp 0.8s 1.2s both; position: relative; overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
   }
-
-  .forgive-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(220, 80, 120, 0.15);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
+  .forgive-btn::before { content: ''; position: absolute; inset: 0; background: rgba(220, 80, 120, 0.15); opacity: 0; transition: opacity 0.3s; }
   .forgive-btn:hover::before { opacity: 1; }
-  .forgive-btn:hover {
-    border-color: rgba(220, 80, 120, 0.7);
-    box-shadow: 0 0 24px rgba(220, 80, 120, 0.2);
-  }
-
+  .forgive-btn:hover { border-color: rgba(220, 80, 120, 0.7); box-shadow: 0 0 24px rgba(220, 80, 120, 0.2); }
   .forgive-btn:active { transform: scale(0.97); }
 
-  /* Forgiven state */
-  .forgiven-msg {
-    display: none;
-    margin-top: 2rem;
-    animation: fadeUp 0.6s both;
-  }
+  .forgiven-msg { display: none; margin-top: 2rem; animation: fadeUp 0.6s both; }
+  .forgiven-msg .big-heart { font-size: 2.5rem; animation: pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  @keyframes pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .forgiven-msg p { font-family: 'Playfair Display', serif; font-style: italic; color: #e8758f; font-size: 1.1rem; margin-top: 0.5rem; }
 
-  .forgiven-msg .big-heart {
-    font-size: 2.5rem;
-    animation: pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-  @keyframes pop {
-    from { transform: scale(0); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-
-  .forgiven-msg p {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #e8758f;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Corner accents */
-  .corner {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    opacity: 0.3;
-  }
+  .corner { position: absolute; width: 40px; height: 40px; opacity: 0.3; }
   .corner-tl { top: 16px; left: 16px; border-top: 1px solid #e8758f; border-left: 1px solid #e8758f; border-radius: 4px 0 0 0; }
   .corner-br { bottom: 16px; right: 16px; border-bottom: 1px solid #e8758f; border-right: 1px solid #e8758f; border-radius: 0 0 4px 0; }
 
-  /* Animated Images */
-  .images-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
-  }
-
+  /* Floating images */
+  .images-container { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
   .floating-image {
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    border-radius: 20px;
-    object-fit: cover;
+    position: absolute; width: 160px; height: 160px;
+    border-radius: 20px; object-fit: cover;
     box-shadow: 0 10px 40px rgba(220, 80, 120, 0.3);
     border: 2px solid rgba(220, 80, 120, 0.4);
   }
+  .image-1 { bottom: 80px; left: 40px; animation: floatIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both, floatBounce 3s ease-in-out 1.2s infinite; }
+  .image-2 { bottom: 100px; right: 50px; animation: floatIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) both, floatSway 4s ease-in-out 1.4s infinite; }
+  @keyframes floatIn { from { opacity: 0; transform: translateY(100px) scale(0.7) rotate(-15deg); } to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); } }
+  @keyframes floatBounce { 0%, 100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-15px) rotate(-2deg); } }
+  @keyframes floatSway { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-20px) rotate(3deg); } }
 
-  .image-1 {
-    bottom: 80px;
-    left: 40px;
-    animation: floatIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both,
-              floatBounce 3s ease-in-out 1.2s infinite;
+  /* Audio button */
+  .audio-btn {
+    position: fixed; bottom: 20px; right: 20px; z-index: 100;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(220, 80, 120, 0.15);
+    border: 1px solid rgba(220, 80, 120, 0.5);
+    color: #e8758f; font-size: 22px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 20px rgba(220, 80, 120, 0.3);
+    transition: all 0.3s; -webkit-tap-highlight-color: transparent;
   }
-
-  .image-2 {
-    bottom: 100px;
-    right: 50px;
-    animation: floatIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) both,
-              floatSway 4s ease-in-out 1.4s infinite;
-  }
-
-  @keyframes floatIn {
-    from {
-      opacity: 0;
-      transform: translateY(100px) scale(0.7) rotate(-15deg);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1) rotate(0deg);
-    }
-  }
-
-  @keyframes floatBounce {
-    0%, 100% { transform: translateY(0) rotate(2deg); }
-    50% { transform: translateY(-15px) rotate(-2deg); }
-  }
-
-  @keyframes floatSway {
-    0%, 100% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-20px) rotate(3deg); }
+  .audio-btn:hover { background: rgba(220,80,120,0.28); transform: scale(1.08); }
+  .audio-btn.playing { animation: audioPulse 1.4s ease-in-out infinite; }
+  @keyframes audioPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(220,80,120,0.3); }
+    50% { box-shadow: 0 0 36px rgba(220,80,120,0.7); }
   }
 
   @media (max-width: 768px) {
-    .floating-image {
-      width: 120px;
-      height: 120px;
-    }
-    .image-1 {
-      bottom: 40px;
-      left: 20px;
-    }
-    .image-2 {
-      bottom: 50px;
-      right: 20px;
-    }
+    .card { padding: 2rem 1.5rem; }
+    .headline { font-size: 2.2rem; }
+    .floating-image { width: 110px; height: 110px; }
+    .image-1 { bottom: 30px; left: 12px; }
+    .image-2 { bottom: 40px; right: 12px; }
   }
 </style>
 </head>
@@ -362,6 +191,7 @@
 
 <div class="stars" id="stars"></div>
 <div class="petals-container" id="petals"></div>
+
 <div class="images-container">
   <img src="baby1.jpg" alt="Baby 1" class="floating-image image-1">
   <img src="baby2.jpg" alt="Baby 2" class="floating-image image-2">
@@ -377,17 +207,17 @@
     </div>
 
     <p class="eyebrow">A letter for you</p>
-    <h1 class="headline">I'm truly <em>sorry</em></h1>
+    <h1 class="headline">I'm truly <em>sorry</em>,<br><em>Grace</em> 🌸</h1>
 
     <div class="divider"></div>
 
     <p class="message">
       I know my actions hurt you, and you deserve so much better than what I gave you in that moment.
-      <strong>You matter deeply to me</strong> — more than I sometimes show, and more than words can fully express.
+      <strong>You matter deeply to me, Grace</strong> — more than I sometimes show, and more than words can fully express.
     </p>
 
     <p class="personal-note">
-      "You are the best thing in my life, and I never want to take that for granted. I'm sorry."
+      "You are the best thing in my life, and I never want to take that for granted. I'm sorry, Grace."
     </p>
 
     <p class="message">
@@ -403,29 +233,29 @@
 
     <div class="forgiven-msg" id="forgivenMsg">
       <div class="big-heart">💖</div>
-      <p>Thank you. I promise to never let you down again.</p>
+      <p>Thank you, Grace. I promise to never let you down again.</p>
     </div>
   </div>
 </div>
 
+<!-- Audio -->
+<audio id="bgAudio" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+<button class="audio-btn" id="audioBtn" onclick="toggleAudio()">▶</button>
+
 <script>
-// Generate stars
+// Stars
 const starsEl = document.getElementById('stars');
 for (let i = 0; i < 120; i++) {
   const s = document.createElement('div');
   s.className = 'star';
   const size = Math.random() * 2.5 + 0.5;
-  s.style.cssText = `
-    width:${size}px; height:${size}px;
-    top:${Math.random()*100}%; left:${Math.random()*100}%;
-    --d:${2 + Math.random()*4}s;
-    --op:${0.3 + Math.random()*0.7};
-    animation-delay:${Math.random()*5}s;
-  `;
+  s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;--op:${0.3+Math.random()*0.7};animation-delay:${Math.random()*5}s;`;
   starsEl.appendChild(s);
 }
 
-// Generate falling petals
+// Petals
 const petalsEl = document.getElementById('petals');
 const petalEmojis = ['🌸','🌺','✿','❀','🌹','💮'];
 for (let i = 0; i < 18; i++) {
@@ -433,57 +263,98 @@ for (let i = 0; i < 18; i++) {
   p.className = 'petal';
   p.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
   const sway = (Math.random() - 0.5) * 200;
-  p.style.cssText = `
-    left:${Math.random()*100}%;
-    --fall-d:${6 + Math.random()*8}s;
-    --fall-delay:${Math.random()*10}s;
-    --sway:${sway}px;
-    font-size:${14 + Math.random()*14}px;
-  `;
+  p.style.cssText = `left:${Math.random()*100}%;--fall-d:${6+Math.random()*8}s;--fall-delay:${Math.random()*10}s;--sway:${sway}px;font-size:${14+Math.random()*14}px;`;
   petalsEl.appendChild(p);
 }
+
+// Inject keyframes
+const style = document.createElement('style');
+style.textContent = `
+@keyframes riseHeart {
+  from { opacity:1; transform:translateY(0) scale(0.3); }
+  to   { opacity:0; transform:translateY(-85vh) scale(1.5) rotate(15deg); }
+}
+@keyframes floatRandom {
+  0%   { opacity:0; transform:translateY(0) scale(0.4) rotate(0deg); }
+  15%  { opacity:1; }
+  85%  { opacity:0.8; }
+  100% { opacity:0; transform:translateY(-90vh) scale(1.2) rotate(var(--rot)); }
+}`;
+document.head.appendChild(style);
+
+function spawnHeart(x, y, emoji) {
+  const h = document.createElement('div');
+  const size = 16 + Math.random() * 28;
+  h.style.cssText = `position:fixed;pointer-events:none;z-index:999;font-size:${size}px;left:${x}px;top:${y}px;animation:riseHeart ${1.5+Math.random()}s ease-out forwards;`;
+  h.textContent = emoji || ['💗','💖','💝','💕','❤️'][Math.floor(Math.random()*5)];
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 2600);
+}
+
+// Continuous ambient hearts
+function ambientHearts() {
+  const hearts = ['💗','💖','💝','💕','🌸','✨'];
+  setInterval(() => {
+    const x = Math.random() * window.innerWidth;
+    const y = window.innerHeight + 10;
+    const h = document.createElement('div');
+    const rot = (Math.random() - 0.5) * 60;
+    h.style.cssText = `position:fixed;pointer-events:none;z-index:2;font-size:${12+Math.random()*18}px;left:${x}px;top:${y}px;--rot:${rot}deg;animation:floatRandom ${5+Math.random()*5}s ease-out forwards;`;
+    h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 10500);
+  }, 300);
+}
+ambientHearts();
 
 // Heart burst on click
 function burstHeart(el) {
   el.style.animation = 'none';
   el.textContent = '💖';
-  setTimeout(() => {
-    el.style.animation = '';
-    el.textContent = '💗';
-  }, 600);
-}
-
-// Forgiven interaction
-function forgiven() {
-  document.getElementById('forgivBtn').style.display = 'none';
-  const msg = document.getElementById('forgivenMsg');
-  msg.style.display = 'block';
-
-  // Burst hearts everywhere
-  for (let i = 0; i < 20; i++) {
+  setTimeout(() => { el.style.animation = ''; el.textContent = '💗'; }, 600);
+  const rect = el.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  for (let i = 0; i < 16; i++) {
     setTimeout(() => {
-      const h = document.createElement('div');
-      h.style.cssText = `
-        position:fixed; pointer-events:none; z-index:999;
-        font-size:${16+Math.random()*24}px;
-        left:${Math.random()*100}vw;
-        top:${50+Math.random()*50}vh;
-        animation: riseHeart 2s ease-out forwards;
-      `;
-      h.textContent = ['💗','💖','💝','💕'][Math.floor(Math.random()*4)];
-      document.body.appendChild(h);
-      setTimeout(() => h.remove(), 2100);
-    }, i * 80);
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 30 + Math.random() * 80;
+      spawnHeart(cx + Math.cos(angle)*dist, cy + Math.sin(angle)*dist);
+    }, i * 50);
   }
 }
 
-// Inject riseHeart keyframe
-const style = document.createElement('style');
-style.textContent = `@keyframes riseHeart {
-  from { opacity:1; transform:translateY(0) scale(0.5); }
-  to { opacity:0; transform:translateY(-80vh) scale(1.2) rotate(${Math.random()*30-15}deg); }
-}`;
-document.head.appendChild(style);
+// Forgiven - 60 hearts explosion
+function forgiven() {
+  document.getElementById('forgivBtn').style.display = 'none';
+  document.getElementById('forgivenMsg').style.display = 'block';
+  for (let i = 0; i < 60; i++) {
+    setTimeout(() => {
+      spawnHeart(
+        Math.random() * window.innerWidth,
+        Math.random() * window.innerHeight * 0.6 + window.innerHeight * 0.3
+      );
+    }, i * 60);
+  }
+}
+
+// Audio
+const audio = document.getElementById('bgAudio');
+const audioBtn = document.getElementById('audioBtn');
+let playing = false;
+function toggleAudio() {
+  if (!playing) {
+    audio.play();
+    audioBtn.textContent = '⏸';
+    audioBtn.classList.add('playing');
+    playing = true;
+  } else {
+    audio.pause();
+    audioBtn.textContent = '▶';
+    audioBtn.classList.remove('playing');
+    playing = false;
+  }
+}
 </script>
 </body>
 </html>
